@@ -1,10 +1,10 @@
-const express = require('express');
-const swaggerUI = require('swagger-ui-express');
-const path = require('path');
-const YAML = require('yamljs');
-const teacherRouter = require('./resources/teacher/teacher.router');
-const abiturientRouter = require('./resources/abiturient/abiturient.router');
-const examRouter = require('./resources/exam/exam.router');
+import express from 'express';
+import swaggerUI from 'swagger-ui-express';
+import path from 'path';
+import YAML from 'yamljs';
+import teacherRouter from './resources/teacher/teacher.router';
+import abiturientRouter from './resources/abiturient/abiturient.router';
+import examRouter from './resources/exam/exam.router';
 
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
@@ -25,4 +25,4 @@ app.use('/teacher', teacherRouter);
 app.use('/abiturient', abiturientRouter);
 app.use('/abiturient/:abiturientId/exam', examRouter);
 
-module.exports = app;
+export default app;
